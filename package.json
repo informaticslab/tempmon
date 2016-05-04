@@ -1,0 +1,17 @@
+{
+  "name": "tempmon",
+  "version": "1.0.0",
+  "description": "Temperature monitor using Raspberry Pi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael ta",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "nan": "^2.3.3",
+    "node-dht-sensor": "0.0.11",
+    "pi-arest": "^1.0.0"
+  }
+}
