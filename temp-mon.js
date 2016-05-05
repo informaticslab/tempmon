@@ -22,7 +22,7 @@ function sensorObj(errors, isValid, temperature, humidity){
     this.errors = errors;
     this.isValid = isValid;
     this.temperature = temperature;
-    this.temperature = humidity;
+    this.humidity = humidity;
 }
 
 var dht_sensor = {
