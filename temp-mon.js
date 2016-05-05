@@ -8,6 +8,12 @@ var piREST = require('pi-arest')(app);
 // app.set('view engine', 'jade');
 // app.use(express.static(__dirname + '/public'));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // Serve interface
 app.get('/interface', function(req, res){
     res.render('interface');
