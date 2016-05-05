@@ -15,7 +15,7 @@ app.get('/interface', function(req, res){
 
 // Set Pi properties
 piREST.set_id('1');
-piREST.set_name('my_RPi');
+piREST.set_name('Lab-RPi');
 
 // Make measurements from sensors
 var dht_sensor = {
@@ -27,6 +27,7 @@ var dht_sensor = {
         
         piREST.variable('temperature',readout.temperature.toFixed(2));
         piREST.variable('humidity', readout.humidity.toFixed(2));
+        piREST.variable('sensorData', readout);
         
         console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
             'humidity: ' + readout.humidity.toFixed(2) + '%');
