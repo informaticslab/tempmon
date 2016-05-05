@@ -18,16 +18,28 @@ piREST.set_id('1');
 piREST.set_name('Lab-RPi');
 
 // Make measurements from sensors
+function sensorObj(errors, isValid, temperature, humidity){
+    this.errors = errors;
+    this.isValid = isValid;
+    this.temperature = temperature;
+    this.temperature = humidity;
+}
+
 var dht_sensor = {
     initialize: function () {
         return sensorLib.initialize(22, 4);
     },
     read: function () {
         var readout = sensorLib.read();
-        
-        piREST.variable('temperature',readout.temperature.toFixed(2));
-        piREST.variable('humidity', readout.humidity.toFixed(2));
-        piREST.variable('sensorData', readout.toFixed(2));
+        var returnData = new sensorObj(
+            readout.errors, 
+            readout.isValid,
+            readout.temperature.toFixed(2),
+            readout.humidity.toFixed(2));
+
+        // piREST.variable('temperature',readout.temperature.toFixed(2));
+        // piREST.variable('humidity', readout.humidity.toFixed(2));
+        piREST.variable('sensorData', returnData);
         
         console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
             'humidity: ' + readout.humidity.toFixed(2) + '%');
