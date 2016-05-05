@@ -27,7 +27,7 @@ var dht_sensor = {
         
         piREST.variable('temperature',readout.temperature.toFixed(2));
         piREST.variable('humidity', readout.humidity.toFixed(2));
-        piREST.variable('sensorData', readout);
+        piREST.variable('sensorData', readout.toFixed(2));
         
         console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
             'humidity: ' + readout.humidity.toFixed(2) + '%');
