@@ -44,7 +44,7 @@ var dht_sensor = {
             readout.errors, 
             readout.isValid,
             convertedTemp,
-            readout.humidity.toFixed(1));
+            readout.humidity.toFixed(2));
 
         // piREST.variable('temperature',readout.temperature.toFixed(2));
         // piREST.variable('humidity', readout.humidity.toFixed(2));
