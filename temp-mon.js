@@ -31,23 +31,26 @@ function sensorObj(errors, isValid, temperature, humidity){
     this.humidity = humidity;
 }
 
+
 var dht_sensor = {
     initialize: function () {
         return sensorLib.initialize(22, 4);
     },
     read: function () {
         var readout = sensorLib.read();
+        var temp = readout.temperature.toFixed(2);
+        var convertedTemp = temp * 9/5 +32;
         var returnData = new sensorObj(
             readout.errors, 
             readout.isValid,
-            readout.temperature.toFixed(2),
+            convertedTemp,
             readout.humidity.toFixed(2));
 
         // piREST.variable('temperature',readout.temperature.toFixed(2));
         // piREST.variable('humidity', readout.humidity.toFixed(2));
         piREST.variable('sensorData', returnData);
         
-        console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
+        console.log('Temperature: ' + convertedTemp+ 'F, ' +
             'humidity: ' + readout.humidity.toFixed(2) + '%');
         setTimeout(function () {
             dht_sensor.read();
