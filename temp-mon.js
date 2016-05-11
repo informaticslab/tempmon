@@ -20,7 +20,7 @@ app.get('/interface', function(req, res){
 });
 
 // Set Pi properties
-piREST.set_id('l4dgx9');
+piREST.set_id('l4dgx934sdfxc35ujnbmuk578');
 piREST.set_name('Lab-RPi');
 
 // Make measurements from sensors
