@@ -38,20 +38,20 @@ var dht_sensor = {
     },
     read: function () {
         var readout = sensorLib.read();
-        var temp = readout.temperature.toFixed(2);
+        var temp = readout.temperature.toFixed(1);
         var convertedTemp = temp * 9/5 +32;
         var returnData = new sensorObj(
             readout.errors, 
             readout.isValid,
             convertedTemp,
-            readout.humidity.toFixed(2));
+            readout.humidity.toFixed(1));
 
         // piREST.variable('temperature',readout.temperature.toFixed(2));
         // piREST.variable('humidity', readout.humidity.toFixed(2));
         piREST.variable('sensorData', returnData);
         
         console.log('Temperature: ' + convertedTemp+ 'F, ' +
-            'humidity: ' + readout.humidity.toFixed(2) + '%');
+            'humidity: ' + readout.humidity.toFixed(1) + '%');
         setTimeout(function () {
             dht_sensor.read();
         }, 2000);
